@@ -1,0 +1,31 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %} เมนูทั้งหมด {{food_id}}{% endblock site_title %}
+
+{% block content %}
+<div>   
+    <h2>เมนูอร่อย ส่งบ่อย ส่งแม่น </h2>
+    {% for food in foods %}
+    <div style="background-color:aquamarine;">    
+    <h3><a href ="{% url 'food' food.id %}">{{food.title}}</a></h3>
+        {% if  food.special_price is not none %}
+        <p>
+            <span>{{food.special_price|floatformat:'g'}} บาท</span>
+            <del>{{food.price|floatformat:'g'}} บาท</del>
+        </p>
+
+        {% else %}
+        <p>{{food.price|floatformat:'g'}} บาท</p>
+        {% endif %}
+        {% if food.is_premium%}
+
+            <p> *** เมนูสุดพิเศษ </p>
+            
+        {% endif %}
+        <p>โปรโมชั่นถึง {{food.promotion_end_at|date:'j N Y'}}</p>
+        {% empty%}
+            <p>ยังไม่มีข้อมูล</p>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

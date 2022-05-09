@@ -1,0 +1,19 @@
+<h2>ลงทะเบียนรับโปรโมรชั่น</h2>
+<p>กรุณาใส่ข้อมูลจริง เพื่อความสะดวกราบรื่นในการรับโปรโมชั่นพิเศษ</p>
+<label>ชื่อ-นามสกุล</label>
+<input type="text">
+<label>อีเมล</label>
+<input type="text">
+<label>เมนูที่สนใจ</label>
+{% for food in foods%}
+    <input type="checkbox"><label>{{food.title}}</label>
+{% endfor %}
+<label>อ่านข้อตกลงและเงื่อนไข</label>
+    <input type="checkbox"><label>ข้อความยาวๆที่หลายคนเจอ</label>
+    <button type="submit"><a href="" ตกลง</button>
+
+        <h2>ขอบคุณ</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem perferendis dignissimos ea aliquid sit voluptates quas blanditiis! Labore sunt quos qui, error minus cumque quam laborum. Tempora quod placeat eaque.</p>
+        <a href="{% url 'home'%}">กลับหน้าแรก</a>
+
+        <div style="margin: 16px;"
